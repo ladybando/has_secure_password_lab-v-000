@@ -19,7 +19,7 @@ class UsersController < ApplicationController
    else
      @user = User.create(user_params)
      session[:user_id] = @user.id
-     redirect_to hello_path
+     redirect_to root_path
    end
  end
 
