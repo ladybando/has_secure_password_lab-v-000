@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    def password=(new_password)
+  def password=(new_password)
     salt = BCrypt::Engine::generate_salt
     hashed = BCrypt::Engine::hash_secret(new_password, salt)
     self.password_digest = salt + hashed
@@ -11,5 +11,8 @@ class UsersController < ApplicationController
     salt = password_digest[0..28]
     hashed = BCrypt::Engine::hash_secret(password, salt)
     return nil unless (salt + hashed) == self.password_digest
+  end
+  
+  def create
   end
 end
